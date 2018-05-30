@@ -1,5 +1,5 @@
 package com.company;
-
+import static com.company.projConstants.*;
 import java.util.*;
 import java.io.*;
 public class Main {
@@ -11,18 +11,18 @@ public class Main {
         int centisecond = 1000;
         int[][] map = new int[10][10];
         //Doubles
-        double currCreds = 0;
+        double currCreds = MAXCRED;
 
         //BOOL
         boolean hasBeenDistributed = false;
         boolean mapMapped = false;
         boolean mapDone = false;
+        final boolean krystianBrained = false;
         //Robots
         mapRobot[] mapR = new mapRobot[20];
-        for(int i = 0; i < 20; i++){
-            mapR[i] = new mapRobot();
+        mapR[0] = new mapRobot(1,1);
 
-        }
+
         mineRobot[] mineR = new mineRobot[20];
         for(int i = 0; i < 20; i++){
             mineR[i] = new mineRobot();
@@ -43,7 +43,11 @@ public class Main {
                 public void run() {
                 do{
                     if (hasBeenDistributed == false){
+                        if(mapMapped == false){
+                            mapR[0].distributeCreds(currCreds);
 
+
+                        }
                     }
 
 
@@ -53,7 +57,7 @@ public class Main {
 
 
 
-                }while(currCreds != 0);
+                }while(currCreds != 0 || mapMapped == false);
 
                 }
             }, 0 ,decisecond);
