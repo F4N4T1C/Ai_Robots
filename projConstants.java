@@ -13,7 +13,7 @@ public class projConstants {
     public static final int ROW = 100;
     public static final int COL = 100;
     public static final double MAXCRED = 1500;
-
+    public static final int MAPSIZE = 1000;
 
 
 
